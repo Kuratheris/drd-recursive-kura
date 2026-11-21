@@ -1265,6 +1265,18 @@ if (gadgetHandler:IsSyncedCode()) then
     end
 
     function RobotTeam:UnitIdle(unitID, unitDefID)
+        local target = chooseTarget(unitID)
+        if not target then
+            self._idleOrderQueue[unitID] = nil
+            return
+        end
+
+        local x, y, z = GetUnitPosition(target)
+        if not x then
+            self._idleOrderQueue[unitID] = nil
+            return
+        end
+
         local failCount = self._failChickens[unitID]
         if (failCount == nil) then
             if (unitID ~= self._queenID) then
@@ -1274,13 +1286,9 @@ if (gadgetHandler:IsSyncedCode()) then
             self._failChickens[unitID] = failCount + 1
         end
 
-        local target = chooseTarget(unitID)
-        local targetPos = {
-            GetUnitPosition(target)
-        }
         self._idleOrderQueue[unitID] = {
             cmd = CMD.MOVE,
-            params = targetPos,
+            params = {x, y, z},
             opts = {}
         }
     end
@@ -1547,12 +1555,11 @@ if (gadgetHandler:IsSyncedCode()) then
                     if (not checkedForDT) then
                         checkedForDT = true
                         local nearFeatures = Spring.GetFeaturesInSphere(x, y, z, 70)
-                        for i, featureID in ipairs(nearFeatures) do
+                        for _, featureID in ipairs(nearFeatures) do
                             local featureDefID = Spring.GetFeatureDefID(featureID)
-                            if
-                                (featureDefID) and (FeatureDefs[featureDefID].metal > 0) and
-                                    (not FeatureDefs[featureDefID].autoReclaimable)
-                             then
+                            local featureDef = featureDefID and FeatureDefs[featureDefID]
+                            if featureDef and featureDef.metal > 0 and not featureDef.autoreclaim
+                                and Spring.GetFeatureBlocking(featureID) then
                                 local fx, fy, fz = Spring.GetFeaturePosition(featureID)
                                 self._idleOrderQueue[unitID] = {
                                     cmd = CMD.ATTACK,
