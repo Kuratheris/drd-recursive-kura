@@ -33,7 +33,13 @@ local armourTurretsUnits = {
   cordoom1 = true,
   armanni = true,
   armanni1 = true,
-  packo = true
+  tllplasma = true,
+  tllpulaser = true,
+  talon_llt = true,
+  rumad_pt = true,
+  rumad_hotshot = true,
+  rumad_hotshot1 = true,
+  packo = true 
 }
 
 local armourTurrets = {}
