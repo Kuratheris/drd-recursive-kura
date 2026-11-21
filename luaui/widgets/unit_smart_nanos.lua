@@ -34,7 +34,7 @@ local GiveOrderToUnit     = Spring.GiveOrderToUnit
 local GetUnitHealth       = Spring.GetUnitHealth
 local GetUnitsInCylinder  = Spring.GetUnitsInCylinder
 local GetUnitPosition     = Spring.GetUnitPosition
-local GetCommandQueue     = Spring.GetCommandQueue
+local GetUnitCommands     = Spring.GetUnitCommands
 local GetFeatureDefID     = Spring.GetFeatureDefID
 local GetFeatureResources = Spring.GetFeatureResources
 local AreTeamsAllied      = Spring.AreTeamsAllied
@@ -177,8 +177,8 @@ function widget:CommandNotify(id, params, options)
     targetUnit = params[1]
     teamUnits[targetUnit] = nil
     for unitID,unitDefs in pairs(nanoTurrets) do
-      local cQueue = GetCommandQueue(unitID, 1)
-      if (#cQueue > 0) then
+      local cQueue = GetUnitCommands(unitID, 1)
+      if cQueue and #cQueue > 0 then
         if (cQueue[1].id == CMD.REPAIR) and (cQueue[1].params[1] == targetUnit) then
           if options.shift then
             GiveOrderToUnit(unitID,CMD.STOP,{},{})
@@ -197,8 +197,8 @@ function widget:CommandNotify(id, params, options)
       widget:UnitFinished(targetUnit, GetUnitDefID(targetUnit), myTeamID)
     end
     for unitID,unitDefs in pairs(nanoTurrets) do
-      local cQueue = GetCommandQueue(unitID, 1)
-      if (#cQueue > 0) then
+      local cQueue = GetUnitCommands(unitID, 1)
+      if cQueue and #cQueue > 0 then
         if (cQueue[1].id == CMD.RECLAIM) and (cQueue[1].params[1] == targetUnit) then
           GiveOrderToUnit(unitID,CMD.REPAIR,{targetUnit},{})
         end
@@ -312,7 +312,9 @@ function widget:Update(deltaTime)
     end
     
     for unitID,unitDefs in pairs(nanoTurrets) do
-      if (unitDefs.pointer == pointer) then
+      -- The patrol heuristic only needs to distinguish up to four orders from longer queues.
+      local cQueue = unitDefs.pointer == pointer and GetUnitCommands(unitID, 5)
+      if cQueue then
         local curH, maxH = GetUnitHealth(unitID)
         if (curH < maxH) then
           nanoTurrets[unitID].damaged = true
@@ -320,8 +322,6 @@ function widget:Update(deltaTime)
           nanoTurrets[unitID].damaged = false
         end
                 
-        local cQueue = GetCommandQueue(unitID)
-     
         local commandMe = false
       
         local prevCommand = nil
