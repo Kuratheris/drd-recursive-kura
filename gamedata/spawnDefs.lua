@@ -141,27 +141,19 @@ settingCommanders = {
 }
 
 settingNeutralUnits = {
-  -- CORE
   corpunk = true,
   corak = true,
-		-- corak1 = true,
   corfav = true,
-  -- ARM
   armflea = true,
   armpw = true,
-		-- armpw1 = true,
   armfav = true,
   armflash = true,
-  -- TLL
   tllbug = true,
   tllprivate = true,
   tllgladius = true,
-  -- TALON
   talon_infantry = true,
   talon_topaz = true,
-  -- GOK
   gok_negator = true,
-  -- RUMAD
   rumad_dragster = true
 }
 
@@ -225,7 +217,6 @@ settingForceGround = {
   tllbarbarus = true,
   tllzeppelin = true,
   tllzeppelin1 = true,
-						-- talon_skynet = true,
   talon_independence = true,
   talon_gold = true,
   talon_cerberus = true,
@@ -288,7 +279,6 @@ settingBlackList = {
   rumad_spy = true,
   rumad_mjam = true,
   rumad_mrad = true,
-  
   -- Anti-Nuke
   armscab = true,
   talon_tribulation = true,
@@ -297,9 +287,6 @@ settingBlackList = {
   talon_tribulation = true,
   gok_morningstar = true,
   rumad_mantinuke = true,
-						-- cormabm1 = true,
-						-- armscab1 = true,
-
   -- Scouts
   armpeep = true,
   corawac = true,
@@ -310,7 +297,6 @@ settingBlackList = {
   rumad_ascout_lvl1 = true,
   rumad_ascout_lvl2 = true,
   rumad_meyes = true,
-
   -- Torpedo
   armlance = true,
   armundertow = true,
@@ -325,12 +311,10 @@ settingBlackList = {
   gok_revenant = true,
   gok_exorcist = true,
   gok_cancer = true,
-
   -- Turrets
   armclaw = true,
   cormaw = true,
   tllfflak = true,
-  
   -- Shields
   rumad_gate2 = true,
   rumad_gate = true,
@@ -338,7 +322,6 @@ settingBlackList = {
   corshieldgen = true,
   armshieldgen = true,
   armbeetle = true,
-  
   -- Other
   e_chickenqr = true,
   fh_chickenqr = true,
@@ -354,44 +337,14 @@ settingBlackList = {
   rumad_metalmakerlvl2 = true,
   rumad_metalmakerlvl3 = true,
   rumad_fusion = true,
-				--armseap = true,
-				--armsehak = true,
-				--armsfig = true,
-				--armsh175 = true,
-				--blotter = true,
-				--concealer = true,
-				
-				
-						--corbtrans = true,
-						--corhelo = true,
-						--corhunt = true,
-						--corseap = true,
-						--corsfig = true,
-						--nsacanglr = true,
-						--r75v = true,
-						--requ1 = true,
-						--tllseab = true,
-						--tllseaf = true,
-						--tllsonpl = true,
-						--watcher = true,
-				-- armabad = true,
-				
-  -- not working
-						--nsaagriz = true,
   -- transports
   armatlas = true,
-						--armdragf = true,
-						--armor = true,
-						--armsl = true,
-						--armthovr = true,
   armtship = true,
   armdfly = true,
   armmuat = true,
   armlift = true,
   arm_aircarry = true,
-						--corfalc = true,
   cormuat = true,
-						--corthovr = true,
   cortship = true,
   corvalk = true,
   corseahook = true,
@@ -399,7 +352,6 @@ settingBlackList = {
   corlift = true,
   corcarry = true,
   corucar = true,
-						--intruder = true,
   talon_bishop = true,
   talon_rukh = true,
   talon_tau = true,
@@ -421,7 +373,6 @@ settingBlackList = {
   gok_ucar = true,
   rumad_airtrans_lvl1 = true,
   rumad_airtrans_lvl2 = true,
- 
   -- Can't target tnt
   armvader = true,
   coretnt = true,
@@ -431,28 +382,15 @@ settingBlackList = {
   talon_herison = true,
   talon_sphere = true,
   tllcrawlb = true,
-
   -- Useless for them
   armkrypto = true,
-						--gok_vtolmex = true,
-
   -- Satellite
-							--sat_radar = true,
-							--sat_interceptor = true,
-							--sat_strike = true,
-							--sat_antiair = true,
-							--armcsat = true,
-							--tllcsat = true,
-							--orcsat = true,
-							--talon_csat = true,
-							--talon_skynet = true,
   talon_planetkiller = true,
   rumar_thirdeye = true
 }
 
 local aaUnits = {
   -- ARM AA Units
-		-- ahermes = true,		(no longer in the game)
   armjeth = true,
   armyork = true,
   armaak = true,
@@ -464,12 +402,10 @@ local aaUnits = {
   armiguana = true,
   -- CORE AA Units
   corcrash = true,
-		-- corjeag = true,		(no longer in the game)
   coraak = true,
   corsent = true,
   coreak = true,
   corah = true,
-		-- coreslingshot = true,		(no longer in the game)
   corfrog = true,
   corsent = true,
   coraapod = true,
@@ -482,7 +418,6 @@ local aaUnits = {
   tllpuncher = true,
   tllhovermissile = true,
   tllloggerhead = true,
-		-- tllsideneck = true		(no longer in the game)
   tllmantis = true,
   tllhflak = true,
   -- TALON AA Units
@@ -510,7 +445,6 @@ local aaUnits = {
   rumad_eak = true,
   rumad_mflak = true,
   rumad_uflak = true
-  
 }
 
 -- implemention of mo_aa_units
