@@ -106,34 +106,28 @@ bonusTurret7c =
   "cordoom"
 
 settingCommanders = {
-  --Core
   corcom = true,
   corcom1 = true,
   corcom3 = true,
   corcom5 = true,
   corcom6 = true,
   corcom7 = true,
-  --Arm
   armcom = true,
   armcom1 = true,
   armcom2 = true,
   armcom3 = true,
-  --The lost legacy
   tllcom = true,
   tllcom1 = true,
   tllcom2 = true,
   tllcom3 = true,
-  --TALON
   talon_com = true,
   talon_com1 = true,
   talon_com2 = true,
   talon_com3 = true,
-  --GOK
   gok_com = true,
   gok_com1 = true,
   gok_com2 = true,
   gok_com3 = true,
-  --RUMAD
   rumad_com = true,
   rumad_com1 = true,
   rumad_com2 = true,
